@@ -1,3 +1,10 @@
-# Simple examples of uncurried functions bindings in PureScript
+# Curried vs Uncurried JavaScript for FFI
 
-https://discourse.purescript.org/t/curried-vs-uncurried-javascript-for-ffi/1250
+Please check this discourse thread for details: https://discourse.purescript.org/t/curried-vs-uncurried-javascript-for-ffi/1250
+
+## Build
+
+``` shell
+$ spago build
+$ webpack
+```

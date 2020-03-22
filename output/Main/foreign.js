@@ -25,10 +25,11 @@ exports.runGcdFix = function(n) {
   };
 };
 
-// exports.runGcd = function(n) {
-//   return function(m) {
-//     return function() {
-//       return Gcd.gcd(n, m);
-//     };
-//   };
-// };
+
+exports.alertHandwritten = function(msg) {
+  return function() {
+    alert(msg);
+  };
+};
+
+exports.alertImpl = alert;

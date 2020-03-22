@@ -5,14 +5,23 @@ import Prelude
 import Data.Function.Uncurried (Fn2, runFn2)
 import Effect (Effect)
 import Effect.Console (log)
+import Effect.Uncurried (EffectFn1, runEffectFn1)
 
 foreign import runGcdUncurried :: Int -> Int -> Int
 
-foreign import runGcdUncurriedFix ∷ Fn2 Int Int Int
+foreign import runGcdUncurriedFix :: Fn2 Int Int Int
 
 foreign import runGcd :: Int -> Int -> Int
 
 foreign import runGcdFix :: Int -> Int -> Int
+
+-- | Hand written binding - requires JS implementation and "wrapping"
+foreign import alertHandwritten :: String -> Effect Unit
+
+foreign import alertImpl :: EffectFn1 String Unit
+
+alert :: String -> Effect Unit
+alert = runEffectFn1 alertImpl
 
 main :: Effect Unit
 main = do
@@ -26,4 +35,7 @@ main = do
 
   log $ show $ runGcdFix 15 20
 
+  alertHandwritten "handwritten"
+
+  alert "uncurried helpers"
 
